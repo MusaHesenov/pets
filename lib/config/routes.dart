@@ -2,7 +2,6 @@ import 'package:Nestcare/combiner.dart';
 import 'package:Nestcare/screens/auth/first_page.dart';
 import 'package:Nestcare/screens/auth/login_page.dart';
 import 'package:Nestcare/screens/auth/sign_up_page.dart';
-import 'package:Nestcare/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 // variable for our route names
@@ -20,7 +19,7 @@ Route<dynamic> controller(RouteSettings settings) {
     case loginPage:
       return MaterialPageRoute(builder: (context) => const LoginPage());
     case combiner:
-      return MaterialPageRoute(builder: (context) =>  Combiner());
+      return MaterialPageRoute(builder: (context) =>  const Combiner());
 
     case signupPage:
       return MaterialPageRoute(builder: (context) => const SignupPage());
