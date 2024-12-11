@@ -7,7 +7,7 @@ import '../../components/custom_button.dart';
 import '../../repos/provider/auth_provider.dart' as nestcareAuth;
 
 class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+  const ForgotPassword({super.key});
 
   @override
   State<ForgotPassword> createState() => _LoginPageState();
