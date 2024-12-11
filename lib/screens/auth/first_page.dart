@@ -1,15 +1,13 @@
-
-import 'package:Nestcare/components/custom_button.dart';
 import 'package:flutter/material.dart';
-import '../../config/routes.dart'as route;
-
+import '../../config/routes.dart' as route;
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+  const FirstPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF3F0ED),
+      backgroundColor: const Color(0xffF3F0ED),
       body: Padding(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top,
@@ -21,19 +19,16 @@ class FirstPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Image(
-              height:124,
+              height: 124,
               image: AssetImage(
                 "assets/nestcare.png",
               ),
             ),
             const SizedBox(height: 16),
             Text(
-
-
               "Let them know someone cares",
               style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
-
             ),
             const SizedBox(height: 12),
             const Expanded(
@@ -51,11 +46,10 @@ class FirstPage extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             GestureDetector(
-             onTap: () async{
-               await Navigator.pushNamed(context,route.signupPage);
+              onTap: () async {
+                await Navigator.pushNamed(context, route.signupPage);
               },
               child: Container(
-
                 height: 66,
                 decoration: BoxDecoration(
                   color: Colors.black,
@@ -67,7 +61,7 @@ class FirstPage extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
-                      ?.copyWith(color:Colors.white),
+                      ?.copyWith(color: Colors.white),
                 ),
               ),
             ),
@@ -79,9 +73,12 @@ class FirstPage extends StatelessWidget {
                   "Already have an Account ? ",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                TextButton(onPressed: () async{
-                  Navigator.pushNamed(context,route.loginPage);
-                }, child: const Text("Login"))
+                TextButton(
+                  onPressed: () async {
+                    Navigator.pushNamed(context, route.loginPage);
+                  },
+                  child: const Text("Login"),
+                )
               ],
             )
           ],
@@ -89,5 +86,4 @@ class FirstPage extends StatelessWidget {
       ),
     );
   }
-
 }

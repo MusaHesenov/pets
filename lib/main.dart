@@ -1,37 +1,28 @@
- // ignore_for_file: depend_on_referenced_packages
-
 import 'package:Nestcare/combiner.dart';
-import '../../repos/provider/auth_provider.dart' as nestcareAuth;
+import '../../repos/provider/auth_provider.dart' as auth;
 import 'package:Nestcare/repos/provider/category_provider.dart';
 import 'package:Nestcare/repos/provider/pet_provider.dart';
 import 'package:Nestcare/screens/auth/first_page.dart';
-import 'package:Nestcare/screens/connectivity/network_aware_widget.dart';
-import 'package:Nestcare/screens/connectivity/network_status_service.dart';
-import 'package:Nestcare/screens/home/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-//import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'config/routes.dart' as route;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
-import 'navbar/navbar.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // status bar color
+    statusBarColor: Colors.transparent,
   ));
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -41,9 +32,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => nestcareAuth.AuthProvider(),
+          create: (context) => auth.AuthProvider(),
         ),
-       
         ChangeNotifierProvider(
           create: (context) => PetProvider(),
         ),
@@ -61,7 +51,7 @@ class MyApp extends StatelessWidget {
               return const FirstPage();
             }
             else{
-              return Combiner();
+              return const Combiner();
             }
           },
         ),

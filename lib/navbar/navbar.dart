@@ -1,20 +1,13 @@
-
-import 'dart:developer';
-
-import 'package:Nestcare/navbar/Likes.dart';
 import 'package:Nestcare/navbar/google_map_screen.dart';
 import 'package:Nestcare/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-
 import '../screens/favorite/favorite_page.dart';
 import '../service/services.dart';
-import 'Store.dart';
 
 class Navbar_page extends StatefulWidget {
-  const Navbar_page({Key? key}) : super(key: key);
+  const Navbar_page({super.key});
 
   @override
   State<Navbar_page> createState() => _Navbar_pageState();
@@ -28,7 +21,7 @@ class _Navbar_pageState extends State<Navbar_page> {
     double displayWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: pages_list[currentIndex],
+      body: pagesList[currentIndex],
       bottomNavigationBar: Container(
         margin: EdgeInsets.all(displayWidth * .05),
         height: displayWidth * .155,
@@ -90,20 +83,20 @@ class _Navbar_pageState extends State<Navbar_page> {
                       Row(
                         children: [
                           AnimatedContainer(
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             width:
-                            index == currentIndex ? displayWidth * .13 : 0,
+                                index == currentIndex ? displayWidth * .13 : 0,
                           ),
                           AnimatedOpacity(
                             opacity: index == currentIndex ? 1 : 0,
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             child: Text(
                               index == currentIndex
-                                  ? '${listOfStrings[index]}'
+                                  ? listOfStrings[index]
                                   : '',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 15,
@@ -115,19 +108,16 @@ class _Navbar_pageState extends State<Navbar_page> {
                       Row(
                         children: [
                           AnimatedContainer(
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
-                            width:
-                            index == currentIndex ? displayWidth * .03 : 20,
+                            width: index == currentIndex ? displayWidth * .03 : 20,
                           ),
                           Icon(
                             listOfIcons[index],
                             size: displayWidth * .076,
                             color: index == currentIndex
-                                  //kPrimaryColor
-
                                 ? Colors.black
-                                :  Colors.white,
+                                : Colors.white,
                           ),
                         ],
                       ),
@@ -155,11 +145,10 @@ class _Navbar_pageState extends State<Navbar_page> {
     'Map',
     'Services',
   ];
-  List pages_list = [
+  final pagesList = const[
     HomePage(),
     FavoritePage(),
     GoogleMapScreen(),
-    services(),
+    Services(),
   ];
-
 }
