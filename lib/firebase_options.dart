@@ -50,19 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBAgmD4IIjkj_3E1fIBvqtEfdj4mvXSoRY',
-    appId: '1:959378520665:android:0dd853fa1db0c93eaa4f48',
-    messagingSenderId: '959378520665',
-    projectId: 'petsdemo-54f79',
-    storageBucket: 'petsdemo-54f79.firebasestorage.app',
+    apiKey: 'AIzaSyB8A24xI9U_XJDD5Jaq6rGxnCzAA4e4jkk',
+    appId: '1:951598340311:android:a42e82b4ab027bc8bef892',
+    messagingSenderId: '951598340311',
+    projectId: 'ecommercepractice-8f708',
+    databaseURL: 'https://ecommercepractice-8f708-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'ecommercepractice-8f708.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAcL7Q4QVjk5KDuMNUsR-fg50NPMb5kaMw',
-    appId: '1:959378520665:ios:437969efc3fb96bfaa4f48',
-    messagingSenderId: '959378520665',
-    projectId: 'petsdemo-54f79',
-    storageBucket: 'petsdemo-54f79.firebasestorage.app',
+    apiKey: 'AIzaSyBJb5zojDMO2_m8Fq5zom7BWfhyqs2377Q',
+    appId: '1:951598340311:ios:19f0471a3d766169bef892',
+    messagingSenderId: '951598340311',
+    projectId: 'ecommercepractice-8f708',
+    databaseURL: 'https://ecommercepractice-8f708-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'ecommercepractice-8f708.appspot.com',
     iosBundleId: 'com.example.petsdemo',
   );
 }

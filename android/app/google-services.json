@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "959378520665",
-    "project_id": "petsdemo-54f79",
-    "storage_bucket": "petsdemo-54f79.firebasestorage.app"
+    "project_number": "951598340311",
+    "firebase_url": "https://ecommercepractice-8f708-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ecommercepractice-8f708",
+    "storage_bucket": "ecommercepractice-8f708.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:959378520665:android:0dd853fa1db0c93eaa4f48",
+        "mobilesdk_app_id": "1:951598340311:android:a42e82b4ab027bc8bef892",
         "android_client_info": {
           "package_name": "com.example.petsdemo"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBAgmD4IIjkj_3E1fIBvqtEfdj4mvXSoRY"
+          "current_key": "AIzaSyB8A24xI9U_XJDD5Jaq6rGxnCzAA4e4jkk"
         }
       ],
       "services": {
