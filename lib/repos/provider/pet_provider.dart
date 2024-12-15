@@ -7,7 +7,6 @@ import 'package:Nestcare/repos/model/pet_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
 class PetProvider with ChangeNotifier {
   TextEditingController name = TextEditingController();
   TextEditingController addressLane = TextEditingController();
@@ -17,11 +16,9 @@ class PetProvider with ChangeNotifier {
   int cartBadge = 0;
   //List<CartModel> cartItemSaveList = [];
   List<FavoriteModel> favoriteItemSaveList = [];
-  List<PetModel> featuredPetList =[];
-
+  List<PetModel> featuredPetList = [];
 
   final FirebaseFirestore dB = FirebaseFirestore.instance;
-
 
   Future addToFavorite(FavoriteModel favoriteModel) async {
     // ignore: iterable_contains_unrelated_type
@@ -40,7 +37,7 @@ class PetProvider with ChangeNotifier {
   }
 
   List<PetModel> search(String query) {
-    List<PetModel> petSearch = featuredPetList.where((element){
+    List<PetModel> petSearch = featuredPetList.where((element) {
       return element.petName.contains(query);
     }).toList();
     return petSearch;
@@ -58,35 +55,24 @@ class PetProvider with ChangeNotifier {
     } else if (phoneNumber.text.isEmpty) {
       Fluttertoast.showToast(msg: "password is empty");
     } else {
-
       notifyListeners();
       Fluttertoast.showToast(msg: "add your address please go back");
     }
   }
 
-
-  Future getFeaturedPet() async{
+  Future getFeaturedPet() async {
     PetModel petModel;
-    List<PetModel> newList =[];
+    List<PetModel> newList = [];
     QuerySnapshot data = await dB.collection('Pet').get();
-    for (var element in data.docs){
-
-      if(element.exists){
-        petModel=PetModel.fromJson(element.data());
+    for (var element in data.docs) {
+      if (element.exists) {
+        petModel = PetModel.fromJson(element.data());
         newList.add(petModel);
         notifyListeners();
-
       }
     }
     featuredPetList = newList;
     notifyListeners();
     return featuredPetList;
   }
-
-
-
-
-
-
 }
-

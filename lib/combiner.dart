@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
-import 'drawer/NavigationDrawer.dart';
+import 'drawer/navigation_drawer.dart' as drawer;
 import 'navbar/navbar.dart';
 
 Future main() async {
@@ -15,9 +15,9 @@ class Combiner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Navigation_Drawer(),
+      drawer: const drawer.NavigationDrawer(),
       appBar: buildAppBar(context),
-      body: const Navbar_page(),
+      body: const NavbarPage(),
     );
   }
 

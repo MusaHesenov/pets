@@ -6,8 +6,6 @@ import 'package:flutter/cupertino.dart';
 import '../model/categories_model.dart';
 import '../model/pet_model.dart';
 
-////// category data in firebase/////////
-
 class CategoriesProvider with ChangeNotifier {
   final FirebaseFirestore dB = FirebaseFirestore.instance;
 

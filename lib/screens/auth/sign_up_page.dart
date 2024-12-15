@@ -1,4 +1,3 @@
-import 'package:Nestcare/components/custom_text_field.dart';
 import 'package:Nestcare/repos/provider/auth_provider.dart';
 import 'package:Nestcare/screens/auth/auth_services.dart';
 
@@ -9,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../../components/custom_button.dart';
 
 class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key}) : super(key: key);
+  const SignupPage({super.key});
 
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -25,7 +24,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       backgroundColor: Color(0xffF3F0ED),
 
-     // backgroundColor: Colors.cyan,
+      // backgroundColor: Colors.cyan,
       resizeToAvoidBottomInset: false,
 /*      appBar: AppBar(
         elevation: 0,
@@ -36,8 +35,8 @@ class _SignupPageState extends State<SignupPage> {
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("images/lg7.png"), fit: BoxFit.cover)
-        ),
+            image: DecorationImage(
+                image: AssetImage("images/lg7.png"), fit: BoxFit.cover)),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -62,103 +61,82 @@ class _SignupPageState extends State<SignupPage> {
 
                 //Get Started
 
-
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      child:Text(
-                          'Create an account',
+                      child: Text('Create an account',
                           textAlign: TextAlign.left,
                           style: GoogleFonts.rubik(
                             fontWeight: FontWeight.w600,
                             fontSize: 29,
                             color: Colors.black,
-                          )
-                      ),
+                          )),
                     ),
-
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
                       alignment: Alignment.center,
-                      child: Text(
-                          'Lets go through a few simple steps',
+                      child: Text('Lets go through a few simple steps',
                           style: GoogleFonts.rubik(
                             fontSize: 14,
                             color: Colors.black,
-                          )
-                      ),
+                          )),
                     ),
                   ],
                 ),
 
-
-
-                SizedBox(height: 30,),
-
+                SizedBox(
+                  height: 30,
+                ),
 
                 Center(
                   child: Container(
-                    width: 319, height: 80,
+                    width: 319,
+                    height: 80,
                     child: TextFormField(
                       controller: authProvider.signupUserName,
-
-
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                           border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(9),
                           ),
-
                           filled: true,
                           hintStyle: GoogleFonts.rubik(color: Colors.grey[700]),
                           hintText: "Enter name",
-                          fillColor: Colors.white
-                      ),
+                          fillColor: Colors.white),
                     ),
                   ),
                 ),
 
-
 /*              CustomTextField(
                     controller: authProvider.signupUserName, title: "Name"),
-
-
-
                 const SizedBox(
                   height: 20,
                 ),*/
 
-
-
-
-
                 Center(
                   child: Container(
-                    width: 319, height: 80,
+                    width: 319,
+                    height: 80,
                     child: TextFormField(
                       controller: authProvider.signupUserEmail,
-
-
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                           border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(9),
                           ),
-
                           filled: true,
                           hintStyle: GoogleFonts.rubik(color: Colors.grey[700]),
                           hintText: "Enter email ",
-                          fillColor: Colors.white
-                      ),
+                          fillColor: Colors.white),
                     ),
                   ),
                 ),
-
-
 
 /*
                 CustomTextField(
@@ -171,45 +149,38 @@ class _SignupPageState extends State<SignupPage> {
                 ),
 */
 
-
                 Center(
                   child: Container(
-                    width: 319, height: 80,
+                    width: 319,
+                    height: 80,
                     child: TextFormField(
-                        controller:  authProvider.signupUserPassword,
-
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(9),
-                            ),
-                            suffixIcon: IconButton(
-
-                              icon: Icon(_obscureText
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
-                              onPressed: () {
-                                setState(() {
-                                  _obscureText = !_obscureText;
-                                });
-                              },
-                              color: Colors.grey[900],
-                            ),
-                            filled: true,
-                            hintStyle: GoogleFonts.rubik(color: Colors.grey[700]),
-                            hintText: "Password",
-                            //errorText: _PasswordError,
-                            fillColor: Colors.white
-                        ),
+                      controller: authProvider.signupUserPassword,
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(9),
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(_obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                            color: Colors.grey[900],
+                          ),
+                          filled: true,
+                          hintStyle: GoogleFonts.rubik(color: Colors.grey[700]),
+                          hintText: "Password",
+                          //errorText: _PasswordError,
+                          fillColor: Colors.white),
                       obscureText: _obscureText,
                     ),
                   ),
                 ),
-
-
-
-
 
 /*
                 TextField(
@@ -231,13 +202,9 @@ class _SignupPageState extends State<SignupPage> {
                 ),
 */
 
-
-
-
                 const SizedBox(
                   height: 20,
                 ),
-
 
                 Center(
                   child: CustomButton(
@@ -257,23 +224,26 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
 
-
-
-                SizedBox(height: 25,),
+                SizedBox(
+                  height: 25,
+                ),
                 Center(
                   child: Text(
                     '------or------',
-                    style: TextStyle( color: Colors.black,fontWeight: FontWeight.w600,
-                    fontSize: 14),
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14),
                   ),
                 ),
-                SizedBox(height: 25,),
-
-
+                SizedBox(
+                  height: 25,
+                ),
 
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                     child: Container(
                       height: 45,
                       width: 319,
@@ -286,45 +256,53 @@ class _SignupPageState extends State<SignupPage> {
                       child: GestureDetector(
                         onTap: () => AuthService().signInWithGoogle(),
                         child: Center(
-
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 59.0 , vertical: 0.0),
-                              child: Row(
-                                children: [
-                                  Image.asset("assets/google.png",height: 36,),
-                                  Text(
-                                    'Continue With Google',
-                                    style: GoogleFonts.rubik(
-                                      color:  Colors.black,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 59.0, vertical: 0.0),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                "assets/google.png",
+                                height: 36,
                               ),
-                            )
-                        ),
+                              Text(
+                                'Continue With Google',
+                                style: GoogleFonts.rubik(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 15,),
-
+                SizedBox(
+                  height: 15,
+                ),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Already have an acoount ?",style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600
-                      ,),),
+                    const Text(
+                      "Already have an acoount ?",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
                       child: const Text(
                         "Sign in",
-                        style: TextStyle( color: Color(0xff089BFF),fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                            color: Color(0xff089BFF),
+                            fontWeight: FontWeight.w600),
                       ),
                     )
                   ],

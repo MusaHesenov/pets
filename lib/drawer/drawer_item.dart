@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DrawerItem extends StatelessWidget {
-  const DrawerItem({Key? key, required this.name, required this.icon, required this.onPressed}) : super(key: key);
+  const DrawerItem({
+    super.key,
+    required this.name,
+    required this.icon,
+    required this.onPressed,
+  });
 
   final String name;
   final IconData icon;
@@ -17,9 +22,15 @@ class DrawerItem extends StatelessWidget {
         child: Row(
           children: [
             Icon(icon, size: 20, color: Colors.white),
-            const SizedBox(width: 30,),
-            Text(name, style: GoogleFonts.rubik(textStyle: const TextStyle(fontSize: 20, color: Colors.white )),
-      ),
+            const SizedBox(
+              width: 30,
+            ),
+            Text(
+              name,
+              style: GoogleFonts.rubik(
+                textStyle: const TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),

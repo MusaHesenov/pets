@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-
-
 import 'cat.dart';
 
+class MeowScreen extends StatelessWidget {
+  const MeowScreen({super.key});
 
-
-class Meow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Cat(),
-    );
+    return const Cat();
   }
 }

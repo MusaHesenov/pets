@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../config/routes.dart' as route;
 import '../../components/custom_button.dart';
 import '../../repos/provider/auth_provider.dart';
-import 'ForgotPassword.dart';
+import 'forgot_password.dart';
 import 'auth_services.dart';
 
 class LoginPage extends StatefulWidget {

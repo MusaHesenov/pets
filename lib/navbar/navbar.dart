@@ -6,14 +6,14 @@ import 'package:flutter/services.dart';
 import '../screens/favorite/favorite_page.dart';
 import '../service/services.dart';
 
-class Navbar_page extends StatefulWidget {
-  const Navbar_page({super.key});
+class NavbarPage extends StatefulWidget {
+  const NavbarPage({super.key});
 
   @override
-  State<Navbar_page> createState() => _Navbar_pageState();
+  State<NavbarPage> createState() => _NavbarPageState();
 }
 
-class _Navbar_pageState extends State<Navbar_page> {
+class _NavbarPageState extends State<NavbarPage> {
   var currentIndex = 0;
 
   @override
@@ -31,7 +31,7 @@ class _Navbar_pageState extends State<Navbar_page> {
             BoxShadow(
               color: Colors.black.withOpacity(.1),
               blurRadius: 30,
-              offset: Offset(0, 10),
+              offset: const Offset(0, 10),
             ),
           ],
           borderRadius: BorderRadius.circular(50),
@@ -52,14 +52,14 @@ class _Navbar_pageState extends State<Navbar_page> {
             child: Stack(
               children: [
                 AnimatedContainer(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   curve: Curves.fastLinearToSlowEaseIn,
                   width: index == currentIndex
                       ? displayWidth * .32
                       : displayWidth * .18,
                   alignment: Alignment.center,
                   child: AnimatedContainer(
-                    duration: Duration(seconds: 1),
+                    duration: const Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
                     height: index == currentIndex ? displayWidth * .12 : 0,
                     width: index == currentIndex ? displayWidth * .32 : 0,
@@ -72,7 +72,7 @@ class _Navbar_pageState extends State<Navbar_page> {
                   ),
                 ),
                 AnimatedContainer(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   curve: Curves.fastLinearToSlowEaseIn,
                   width: index == currentIndex
                       ? displayWidth * .31
@@ -93,9 +93,7 @@ class _Navbar_pageState extends State<Navbar_page> {
                             duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             child: Text(
-                              index == currentIndex
-                                  ? listOfStrings[index]
-                                  : '',
+                              index == currentIndex ? listOfStrings[index] : '',
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
@@ -110,7 +108,8 @@ class _Navbar_pageState extends State<Navbar_page> {
                           AnimatedContainer(
                             duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
-                            width: index == currentIndex ? displayWidth * .03 : 20,
+                            width:
+                                index == currentIndex ? displayWidth * .03 : 20,
                           ),
                           Icon(
                             listOfIcons[index],
@@ -145,7 +144,7 @@ class _Navbar_pageState extends State<Navbar_page> {
     'Map',
     'Services',
   ];
-  final pagesList = const[
+  final pagesList = const [
     HomePage(),
     FavoritePage(),
     GoogleMapScreen(),

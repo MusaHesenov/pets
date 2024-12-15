@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:Nestcare/repos/model/user_model.dart';
 import 'package:Nestcare/screens/home/home_page.dart';
@@ -21,32 +19,30 @@ class AuthProvider with ChangeNotifier {
   TextEditingController loginUserPassword = TextEditingController();
   RegExp regExp = RegExp(p);
 
-
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore db = FirebaseFirestore.instance;
 
   handleLogin(context) async {
     isLoginLoadding = true;
     notifyListeners();
-    try{
-      UserCredential result = await auth.signInWithEmailAndPassword(email: loginUserEmail.text, password: loginUserPassword.text);
-      final  User user = result.user!;
-      if (user.uid != null){
-        isLoginLoadding = false;
-        notifyListeners();
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const
-        HomePage(),));
-
-    }
-    }on FirebaseAuthException catch (error){
+    try {
+      await auth.signInWithEmailAndPassword(
+        email: loginUserEmail.text,
+        password: loginUserPassword.text,
+      );
       isLoginLoadding = false;
       notifyListeners();
-      if(error.code =="user-not-found"){
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ));
+    } on FirebaseAuthException catch (error) {
+      isLoginLoadding = false;
+      notifyListeners();
+      if (error.code == "user-not-found") {
         Fluttertoast.showToast(msg: "No user found for that email");
-    }
-      else if (error.code =="wrong-password"){
-    Fluttertoast.showToast(msg: "No user found for that email");
-    }
+      } else if (error.code == "wrong-password") {
+        Fluttertoast.showToast(msg: "No user found for that email");
+      }
     }
   }
 
@@ -61,30 +57,29 @@ class AuthProvider with ChangeNotifier {
       Fluttertoast.showToast(msg: "password is empty");
     } else {
       handleLogin(context);
-
     }
   }
 
   handleSignUp(context) async {
     isSignupLoadding = true;
     notifyListeners();
-    try{
-      UserCredential result = await auth.createUserWithEmailAndPassword(email: signupUserEmail.text, password: signupUserPassword.text);
-      final  User user = result.user!;
-      if (user.uid != null){
-        isSignupLoadding = false;
-        notifyListeners();
-        sendUsersInFirebase(context);
-
-      }
-    }on FirebaseAuthException catch (error){
+    try {
+      await auth.createUserWithEmailAndPassword(
+        email: signupUserEmail.text,
+        password: signupUserPassword.text,
+      );
       isSignupLoadding = false;
       notifyListeners();
-      if(error.code =="weak-password"){
+      sendUsersInFirebase(context);
+    } on FirebaseAuthException catch (error) {
+      isSignupLoadding = false;
+      notifyListeners();
+      if (error.code == "weak-password") {
         Fluttertoast.showToast(msg: "Password is too weak");
-      }
-      else if (error.code =="email-already-in-use"){
-        Fluttertoast.showToast(msg: "The Account already exists for that email");
+      } else if (error.code == "email-already-in-use") {
+        Fluttertoast.showToast(
+          msg: "The Account already exists for that email",
+        );
       }
     }
   }
@@ -104,25 +99,29 @@ class AuthProvider with ChangeNotifier {
       Fluttertoast.showToast(msg: "password is empty");
     } else {
       handleSignUp(context);
-
     }
   }
 
- Future sendUsersInFirebase(context) async{
+  Future sendUsersInFirebase(context) async {
     UserModel userModel = UserModel(
-        userName: signupUserName.text,
-        userEmail: signupUserEmail.text,
-        userId: auth.currentUser!.uid,
-        userPassword: signupUserPassword.text);
-    try{
-      await db.collection("Users").doc(auth.currentUser!.uid).set(userModel.toJson()).then((value) =>
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const
-          HomePage(),)) );
-    }catch (error){
-      isSignupLoadding= false;
+      userName: signupUserName.text,
+      userEmail: signupUserEmail.text,
+      userId: auth.currentUser!.uid,
+      userPassword: signupUserPassword.text,
+    );
+    try {
+      await db
+          .collection("Users")
+          .doc(auth.currentUser!.uid)
+          .set(userModel.toJson())
+          .then((value) =>
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const HomePage(),
+              )));
+    } catch (error) {
+      isSignupLoadding = false;
       notifyListeners();
       Fluttertoast.showToast(msg: error.toString());
     }
   }
-
 }

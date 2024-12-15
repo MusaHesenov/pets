@@ -1,22 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebaseAuth;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 import '../../components/custom_button.dart';
-import '../../repos/provider/auth_provider.dart' as nestcareAuth;
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
 
   @override
-  State<ForgotPassword> createState() => _LoginPageState();
+  State<ForgotPassword> createState() => ForgotPasswordState();
 }
 
-class _LoginPageState extends State<ForgotPassword> {
-  final GlobalKey<FormState> _form = GlobalKey<FormState>();
+class ForgotPasswordState extends State<ForgotPassword> {
   final _emailcontroller = TextEditingController();
 
+  @override
   void dispose() {
     _emailcontroller.dispose();
     super.dispose();
@@ -49,7 +46,7 @@ class _LoginPageState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    nestcareAuth.AuthProvider authProvider = Provider.of(context);
+    //nestcareAuth.AuthProvider authProvider = Provider.of(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xffF3F0ED),

@@ -1,41 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
 class GoogleMapScreen extends StatefulWidget {
-  const GoogleMapScreen({Key? key}) : super(key: key);
+  const GoogleMapScreen({super.key});
 
   @override
   State<GoogleMapScreen> createState() => _GoogleMapScreenState();
 }
 
 class _GoogleMapScreenState extends State<GoogleMapScreen> {
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
   late BitmapDescriptor mapMarker;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     setCustomMarker();
   }
 
   void setCustomMarker() async {
     mapMarker = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(), 'assets/destination_map_markers.png');
+        const ImageConfiguration(), 'assets/destination_map_markers.png');
   }
 
   void _onMapCreated(GoogleMapController controller) {
     setState(() {
-      _markers.add(Marker(
-        markerId: MarkerId('id-1'),
-        position: LatLng(9.95203831335,76.2535715103),
-        icon: mapMarker,
-        infoWindow: InfoWindow(
-          title: 'Dhyan Foundation Kochi Animal Rescue',
-          snippet: 'Kochi Animal Rescue',
+      _markers.add(
+        Marker(
+          markerId: const MarkerId('id-1'),
+          position: const LatLng(40.37767, 49.89201),
+          icon: mapMarker,
+          infoWindow: const InfoWindow(
+            title: 'Dhyan Foundation Kochi Animal Rescue',
+            snippet: 'Kochi Animal Rescue',
+          ),
         ),
-      ));
+      );
     });
   }
 
@@ -43,16 +43,18 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Map')),
+        title: const Text('Map'),
+        centerTitle: true,
         backgroundColor: Colors.black,
       ),
       body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          markers: _markers,
-          initialCameraPosition: CameraPosition(
-            target: LatLng(9.95203831335,76.2535715103),
-            zoom: 15,
-          )),
+        onMapCreated: _onMapCreated,
+        markers: _markers,
+        initialCameraPosition: const CameraPosition(
+          target: LatLng(40.37767, 49.89201),
+          zoom: 15,
+        ),
+      ),
     );
   }
 }
