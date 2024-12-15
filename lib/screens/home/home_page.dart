@@ -8,8 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,21 +18,22 @@ class _HomePageState extends State<HomePage> {
   PetProvider? petProvider;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void logOut(){
-    if (FirebaseAuth.instance.currentUser != null){
-      FirebaseAuth.instance.signOut().then((value) => Navigator.of(context).pushReplacement(MaterialPageRoute(builder:
-      (context)=> const FirstPage())));
+  void logOut() {
+    if (FirebaseAuth.instance.currentUser != null) {
+      FirebaseAuth.instance.signOut().then(
+            (value) => Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const FirstPage()),
+            ),
+          );
     }
   }
 
   @override
   void initState() {
-    PetProvider provider = Provider.of(context,listen: false);
+    PetProvider provider = Provider.of(context, listen: false);
     provider.getFeaturedPet();
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,6 @@ class _HomePageState extends State<HomePage> {
     petProvider!.getFeaturedPet();
 
     return Scaffold(
-
-
       /*drawer: Drawer(
         child: SizedBox(
           width: double.infinity,
@@ -102,15 +100,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),*/
-
-
-
-
-      //app bar
-
-
-
-/*      appBar: AppBar(
+/*    appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         leading: InkWell(
@@ -165,7 +155,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),*/
-
 
       key: _scaffoldKey,
       body: ListContents(

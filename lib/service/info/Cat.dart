@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -59,10 +60,7 @@ class Cat extends StatelessWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 50,
-                        left: 25,
-                      ),
+                      padding: const EdgeInsets.only(top: 50, left: 25),
                       child: GestureDetector(
                         onTap: () {
                           debugPrint('tapped');
@@ -88,49 +86,46 @@ class Cat extends StatelessWidget {
                       Text(
                         'KA PERSIAN CATTERY',
                         style: GoogleFonts.rubik(
-                            fontSize: 27, color: Color(0xff646379)),
+                          fontSize: 27,
+                          color: const Color(0xff646379),
+                        ),
                       ),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.location_on_outlined,
                             color: Colors.grey,
                             size: 20,
                           ),
-                          SizedBox(
-                            width: 4,
-                          ),
+                          const SizedBox(width: 4),
                           Text(
                             'kerala',
                             style: GoogleFonts.rubik(
-                                fontSize: 12, color: Colors.grey),
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
                           ),
                         ],
                       ),
                     ],
                   ),
                   GestureDetector(
-                      onTap: () {
-                        debugPrint('Favorite');
-                      },
-                      child: Icon(
-                        Icons.favorite_border,
-                        color: Colors.pinkAccent,
-                        size: 30,
-                      ))
+                    onTap: () {
+                      debugPrint('Favorite');
+                    },
+                    child: const Icon(
+                      Icons.favorite_border,
+                      color: Colors.pinkAccent,
+                      size: 30,
+                    ),
+                  ),
                 ],
               ),
             ),
-
             //3 boxes
-
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -140,20 +135,24 @@ class Cat extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Color(0xFF434242),
+                      color: const Color(0xFF434242),
                     ),
                     width: 100,
                     height: 50,
                     child: Column(
                       children: [
-                        Text('Since',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: GoogleFonts.rubik(
-                                fontSize: 17, color: Color(0xFFC58940))),
-                        Text('2000',
-                            style: GoogleFonts.rubik(
-                                fontSize: 11, color: Colors.grey))
+                        Text(
+                          'Since',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: GoogleFonts.rubik(
+                              fontSize: 17, color: const Color(0xFFC58940)),
+                        ),
+                        Text(
+                          '2000',
+                          style: GoogleFonts.rubik(
+                              fontSize: 11, color: Colors.grey),
+                        ),
                       ],
                     ),
                   ),
@@ -163,20 +162,26 @@ class Cat extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Color(0xFF434242),
+                      color: const Color(0xFF434242),
                     ),
                     width: 100,
                     height: 50,
                     child: Column(
                       children: [
-                        Text('Rating',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: GoogleFonts.rubik(
-                                fontSize: 17, color: Color(0xFFC58940))),
-                        Text('4.5',
-                            style: GoogleFonts.rubik(
-                                fontSize: 11, color: Colors.grey))
+                        Text(
+                          'Rating',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: GoogleFonts.rubik(
+                              fontSize: 17, color: const Color(0xFFC58940)),
+                        ),
+                        Text(
+                          '4.5',
+                          style: GoogleFonts.rubik(
+                            fontSize: 11,
+                            color: Colors.grey,
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -186,68 +191,56 @@ class Cat extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Color(0xFF434242),
+                      color: const Color(0xFF434242),
                     ),
                     width: 100,
                     height: 50,
                     child: Column(
                       children: [
-                        Text('Pets',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: GoogleFonts.rubik(
-                                fontSize: 17, color: Color(0xFFC58940))),
-                        Text('Cats Only',
-                            style: GoogleFonts.rubik(
-                                fontSize: 11, color: Colors.grey))
+                        Text(
+                          'Pets',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: GoogleFonts.rubik(
+                              fontSize: 17, color: const Color(0xFFC58940)),
+                        ),
+                        Text(
+                          'Cats Only',
+                          style: GoogleFonts.rubik(
+                              fontSize: 11, color: Colors.grey),
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
             ),
-
             // About dog and Texts
-
-            SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 30,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Text('About Store',
                   style: GoogleFonts.rubik(fontSize: 14, color: Colors.grey)),
             ),
-
-            const SizedBox(
-              height: 5,
-            ),
+            const SizedBox(height: 5),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 30,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Text(
-                  "Yes we have persian cats sales kittens and adult in all types extreme also available and doll faces and we must sales only quality cats not cross and our cat prices depends on quality ",
-                  style:
-                      GoogleFonts.rubik(fontSize: 14, color: Colors.grey[900])),
+                "Yes we have persian cats sales kittens and adult in all types extreme also available and doll faces and we must sales only quality cats not cross and our cat prices depends on quality ",
+                style: GoogleFonts.rubik(fontSize: 14, color: Colors.grey[900]),
+              ),
             ),
-
-            SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 30,
               ),
-              child: Text('Store Pics',
-                  style: GoogleFonts.rubik(fontSize: 14, color: Colors.grey)),
+              child: Text(
+                'Store Pics',
+                style: GoogleFonts.rubik(fontSize: 14, color: Colors.grey),
+              ),
             ),
-
-            SizedBox(
-              height: 20,
-            ),
-
+            const SizedBox(height: 20),
             SizedBox(
               height: 120,
               child: ListView.builder(
@@ -264,7 +257,7 @@ class Cat extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
                           'assets/images/Store/Cat.jpg',
@@ -275,10 +268,7 @@ class Cat extends StatelessWidget {
                 },
               ),
             ),
-
-            SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
